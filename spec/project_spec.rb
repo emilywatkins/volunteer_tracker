@@ -89,5 +89,14 @@ describe Project do
       project.delete
       expect(Project.all).to eq []
     end
+
+    it 'also deletes the volunteer from that project' do
+      project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+      project.save
+      volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
+      volunteer.save
+      project.delete
+      expect(Volunteer.all).to eq []
+    end
   end
 end
