@@ -16,4 +16,8 @@ class Project
     end
     projects
   end
+
+  def == another_project
+    (self.title == another_project.title) & (self.id == another_project.id)
+  end
 end
