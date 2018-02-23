@@ -52,13 +52,21 @@ end
 delete('/projects/:id') do
   @project = Project.find(params['id'].to_i)
   @project.delete
-  @projects = Project.all()
+  @projects = Project.all
   @volunteers = Volunteer.all
   erb(:index)
 end
 
 get('/volunteers/:id') do
   @volunteer = Volunteer.find(params['id'].to_i)
+  @project = Project.find(@volunteer.project_id)
+  erb(:volunteer)
+end
+
+patch('/volunteers/:id') do
+  name = params[:name]
+  @volunteer = Volunteer.find(params['id'].to_i)
+  @volunteer.update({:name => name})
   @project = Project.find(@volunteer.project_id)
   erb(:volunteer)
 end
