@@ -12,4 +12,15 @@ class Volunteer
     (self.name == another_volunteer.name) & (self.project_id == another_volunteer.project_id) & (self.id == another_volunteer.id)
   end
 
+  def self.all
+    returned_volunteers = DB.exec("SELECT * FROM volunteers;")
+    volunteers = []
+    returned_volunteers.each do |volunteer|
+      name = volunteer['name']
+      project_id = volunteer['project_id'].to_i
+      id = volunteer['id'].to_i
+      volunteers.push(Volunteer.new({:name => name, :project_id => project_id, :id => id}))
+    end
+    volunteers
+  end
 end
