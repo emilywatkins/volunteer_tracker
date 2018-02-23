@@ -38,4 +38,8 @@ class Volunteer
     end
     found_volunteer
   end
+
+  def update(attributes)
+
+  end
 end

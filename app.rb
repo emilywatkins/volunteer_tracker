@@ -54,4 +54,11 @@ delete('/projects/:id') do
   @project.delete
   @projects = Project.all()
   @volunteers = Volunteer.all
+  erb(:index)
+end
+
+get('/volunteers/:id') do
+  @volunteer = Volunteer.find(params['id'].to_i)
+  @project = Project.find(@volunteer.project_id)
+  erb(:volunteer)
 end
