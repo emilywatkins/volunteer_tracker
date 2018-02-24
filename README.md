@@ -37,7 +37,7 @@ In your browser, navigate to localhost:4567/ to view app.
 
 * User can view details of each project including volunteers assigned to that project.
 
-* User can add volunteers and assign them to a specific project.
+* User can create volunteers and assign them to a specific project.
 
 * User can edit names of volunteers and titles of projects and delete projects.
 
